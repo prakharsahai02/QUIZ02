@@ -1,5 +1,5 @@
 
-/* PAGE & BODY */
+
 * {
   font-family: arial, sans-serif;
   box-sizing: border-box;
@@ -16,7 +16,6 @@ body {
   text-align: center;
 }
 
-/* WIDGET */
 .widget-wrap {
   width: 600px;
   padding: 30px; 
@@ -24,7 +23,6 @@ body {
   background: rgba(255, 255, 255, 0.4);
 }
 
-/* FOOTER */
 #code-boxx {
   font-weight: 600;
   margin-top: 30px;
@@ -37,16 +35,12 @@ body {
   background: #b90a0a;
   color: #fff;
 }
-/* (A) WRAPPER */
 #quizWrap {
   max-width: 600px;
   margin: 0 auto;
-  /* RECOMMENDED FIXED HEIGHT IF YOU HAVE CONTENT BELOW THE QUIZ */
-  /* SO THAT PAGE LAYOUT DOES NOT "JUMP" */
-  /* height: 250px; */
 }
 
-/* (B) QUESTION */
+
 #quizQn {
   padding: 20px;
   background: #4c93ba;
@@ -55,7 +49,7 @@ body {
   border-radius: 10px;
 }
 
-/* (C) ANSWERS */
+
 #quizAns {
   margin: 10px 0;
   display: grid;
