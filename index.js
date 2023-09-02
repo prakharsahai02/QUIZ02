@@ -1,12 +1,10 @@
 var quiz = {
-  // (A) PROPERTIES
-  // (A1) QUESTIONS & ANSWERS
-  // Q = QUESTION, O = OPTIONS, A = CORRECT ANSWER
+  
   data: [
     {
       q: " What is the capital of France?",
       o: ["London", "Berlin", "Paris", " Madrid"],
-      a: 2, // arrays start with 0, so answer is 70 meters
+      a: 2, 
     },
     {
       q: "Which planet is known as the Red Planet",
@@ -30,40 +28,30 @@ var quiz = {
     },
   ],
 
-  // (A2) HTML ELEMENTS
-  hWrap: null, // HTML quiz container
-  hQn: null, // HTML question wrapper
-  hAns: null, // HTML answers wrapper
+  hWrap: null, 
+  hQn: null, 
+  hAns: null, 
 
-  // (A3) GAME FLAGS
-  now: 0, // current question
-  score: 0, // current score
+ 
+  now: 0, 
+  score: 0, 
 
-  // (B) INIT QUIZ HTML
+ 
   init: () => {
-    // (B1) WRAPPER
     quiz.hWrap = document.getElementById("quizWrap");
-
-    // (B2) QUESTIONS SECTION
     quiz.hQn = document.createElement("div");
     quiz.hQn.id = "quizQn";
     quiz.hWrap.appendChild(quiz.hQn);
-
-    // (B3) ANSWERS SECTION
     quiz.hAns = document.createElement("div");
     quiz.hAns.id = "quizAns";
     quiz.hWrap.appendChild(quiz.hAns);
-
-    // (B4) GO!
     quiz.draw();
   },
 
-  // (C) DRAW QUESTION
   draw: () => {
-    // (C1) QUESTION
     quiz.hQn.innerHTML = quiz.data[quiz.now].q;
 
-    // (C2) OPTIONS
+  
     quiz.hAns.innerHTML = "";
     for (let i in quiz.data[quiz.now].o) {
       let radio = document.createElement("input");
@@ -82,15 +70,12 @@ var quiz = {
     }
   },
 
-  // (D) OPTION SELECTED
   select: (option) => {
-    // (D1) DETACH ALL ONCLICK
     let all = quiz.hAns.getElementsByTagName("label");
     for (let label of all) {
       label.removeEventListener("click", quiz.select);
     }
 
-    // (D2) CHECK IF CORRECT
     let correct = option.dataset.idx == quiz.data[quiz.now].a;
     if (correct) {
       quiz.score++;
@@ -99,7 +84,6 @@ var quiz = {
       option.classList.add("wrong");
     }
 
-    // (D3) NEXT QUESTION OR END GAME
     quiz.now++;
     setTimeout(() => {
       if (quiz.now < quiz.data.length) {
@@ -111,7 +95,6 @@ var quiz = {
     }, 1000);
   },
 
-  // (E) RESTART QUIZ
   reset: () => {
     quiz.now = 0;
     quiz.score = 0;
